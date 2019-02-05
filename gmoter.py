@@ -20,84 +20,84 @@ COLUMNS = 12
 CELL_SIZE = 60
 
 EMOTICONS = (
-    (128070, '👆', 'WHITE UP POINTING BACKHAND INDEX'),
-    (128071, '👇', 'WHITE DOWN POINTING BACKHAND INDEX'),
-    (128072, '👈', 'WHITE LEFT POINTING BACKHAND INDEX'),
-    (128073, '👉', 'WHITE RIGHT POINTING BACKHAND INDEX'),
-    (128074, '👊', 'FISTED HAND SIGN'),
-    (128075, '👋', 'WAVING HAND SIGN'),
-    (128076, '👌', 'OK HAND SIGN'),
-    (128077, '👍', 'THUMBS UP SIGN'),
-    (128078, '👎', 'THUMBS DOWN SIGN'),
-    (128079, '👏', 'CLAPPING HANDS SIGN'),
-    (128080, '👐', 'OPEN HANDS SIGN'),
+    ('👆', 'WHITE UP POINTING BACKHAND INDEX'),
+    ('👇', 'WHITE DOWN POINTING BACKHAND INDEX'),
+    ('👈', 'WHITE LEFT POINTING BACKHAND INDEX'),
+    ('👉', 'WHITE RIGHT POINTING BACKHAND INDEX'),
+    ('👊', 'FISTED HAND SIGN'),
+    ('👋', 'WAVING HAND SIGN'),
+    ('👌', 'OK HAND SIGN'),
+    ('👍', 'THUMBS UP SIGN'),
+    ('👎', 'THUMBS DOWN SIGN'),
+    ('👏', 'CLAPPING HANDS SIGN'),
+    ('👐', 'OPEN HANDS SIGN'),
 
-    (128512, '😀', 'GRINNING FACE'),
-    (128513, '😁', 'GRINNING FACE WITH SMILING EYES'),
-    (128514, '😂', 'FACE WITH TEARS OF JOY'),
-    (128515, '😃', 'SMILING FACE WITH OPEN MOUTH'),
-    (128516, '😄', 'SMILING FACE WITH OPEN MOUTH AND SMILING EYES'),
-    (128517, '😅', 'SMILING FACE WITH OPEN MOUTH AND COLD SWEAT'),
-    (128518, '😆', 'SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES'),
-    (128519, '😇', 'SMILING FACE WITH HALO'),
-    (128520, '😈', 'SMILING FACE WITH HORNS'),
-    (128521, '😉', 'WINKING FACE'),
-    (128522, '😊', 'SMILING FACE WITH SMILING EYES'),
-    (128523, '😋', 'FACE SAVOURING DELICIOUS FOOD'),
-    (128524, '😌', 'RELIEVED FACE'),
-    (128525, '😍', 'SMILING FACE WITH HEART-SHAPED EYES'),
-    (128526, '😎', 'SMILING FACE WITH SUNGLASSES'),
-    (128527, '😏', 'SMIRKING FACE'),
-    (128528, '😐', 'NEUTRAL FACE'),
-    (128529, '😑', 'EXPRESSIONLESS FACE'),
-    (128530, '😒', 'UNAMUSED FACE'),
-    (128531, '😓', 'FACE WITH COLD SWEAT'),
-    (128532, '😔', 'PENSIVE FACE'),
-    (128533, '😕', 'CONFUSED FACE'),
-    (128534, '😖', 'CONFOUNDED FACE'),
-    (128535, '😗', 'KISSING FACE'),
-    (128536, '😘', 'FACE THROWING A KISS'),
-    (128537, '😙', 'KISSING FACE WITH SMILING EYES'),
-    (128538, '😚', 'KISSING FACE WITH CLOSED EYES'),
-    (128539, '😛', 'FACE WITH STUCK-OUT TONGUE'),
-    (128540, '😜', 'FACE WITH STUCK-OUT TONGUE AND WINKING EYE'),
-    (128541, '😝', 'FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES'),
-    (128542, '😞', 'DISAPPOINTED FACE'),
-    (128543, '😟', 'WORRIED FACE'),
-    (128544, '😠', 'ANGRY FACE'),
-    (128545, '😡', 'POUTING FACE'),
-    (128546, '😢', 'CRYING FACE'),
-    (128547, '😣', 'PERSEVERING FACE'),
-    (128548, '😤', 'FACE WITH LOOK OF TRIUMPH'),
-    (128549, '😥', 'DISAPPOINTED BUT RELIEVED FACE'),
-    (128550, '😦', 'FROWNING FACE WITH OPEN MOUTH'),
-    (128551, '😧', 'ANGUISHED FACE'),
-    (128552, '😨', 'FEARFUL FACE'),
-    (128553, '😩', 'WEARY FACE'),
-    (128554, '😪', 'SLEEPY FACE'),
-    (128555, '😫', 'TIRED FACE'),
-    (128556, '😬', 'GRIMACING FACE'),
-    (128557, '😭', 'LOUDLY CRYING FACE'),
-    (128558, '😮', 'FACE WITH OPEN MOUTH'),
-    (128559, '😯', 'HUSHED FACE'),
-    (128560, '😰', 'FACE WITH OPEN MOUTH AND COLD SWEAT'),
-    (128561, '😱', 'FACE SCREAMING IN FEAR'),
-    (128562, '😲', 'ASTONISHED FACE'),
-    (128563, '😳', 'FLUSHED FACE'),
-    (128564, '😴', 'SLEEPING FACE'),
-    (128565, '😵', 'DIZZY FACE'),
-    (128566, '😶', 'FACE WITHOUT MOUTH'),
-    (128567, '😷', 'FACE WITH MEDICAL MASK'),
-    (128568, '😸', 'GRINNING CAT FACE WITH SMILING EYES'),
-    (128569, '😹', 'CAT FACE WITH TEARS OF JOY'),
-    (128570, '😺', 'SMILING CAT FACE WITH OPEN MOUTH'),
-    (128571, '😻', 'SMILING CAT FACE WITH HEART-SHAPED EYES'),
-    (128572, '😼', 'CAT FACE WITH WRY SMILE'),
-    (128573, '😽', 'KISSING CAT FACE WITH CLOSED EYES'),
-    (128574, '😾', 'POUTING CAT FACE'),
-    (128575, '😿', 'CRYING CAT FACE'),
-    (128576, '🙀', 'WEARY CAT FACE'),
-    (128577, '🙁', 'SLIGHTLY FROWNING FACE'),
+    ('😀', 'GRINNING FACE'),
+    ('😁', 'GRINNING FACE WITH SMILING EYES'),
+    ('😂', 'FACE WITH TEARS OF JOY'),
+    ('😃', 'SMILING FACE WITH OPEN MOUTH'),
+    ('😄', 'SMILING FACE WITH OPEN MOUTH AND SMILING EYES'),
+    ('😅', 'SMILING FACE WITH OPEN MOUTH AND COLD SWEAT'),
+    ('😆', 'SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES'),
+    ('😇', 'SMILING FACE WITH HALO'),
+    ('😈', 'SMILING FACE WITH HORNS'),
+    ('😉', 'WINKING FACE'),
+    ('😊', 'SMILING FACE WITH SMILING EYES'),
+    ('😋', 'FACE SAVOURING DELICIOUS FOOD'),
+    ('😌', 'RELIEVED FACE'),
+    ('😍', 'SMILING FACE WITH HEART-SHAPED EYES'),
+    ('😎', 'SMILING FACE WITH SUNGLASSES'),
+    ('😏', 'SMIRKING FACE'),
+    ('😐', 'NEUTRAL FACE'),
+    ('😑', 'EXPRESSIONLESS FACE'),
+    ('😒', 'UNAMUSED FACE'),
+    ('😓', 'FACE WITH COLD SWEAT'),
+    ('😔', 'PENSIVE FACE'),
+    ('😕', 'CONFUSED FACE'),
+    ('😖', 'CONFOUNDED FACE'),
+    ('😗', 'KISSING FACE'),
+    ('😘', 'FACE THROWING A KISS'),
+    ('😙', 'KISSING FACE WITH SMILING EYES'),
+    ('😚', 'KISSING FACE WITH CLOSED EYES'),
+    ('😛', 'FACE WITH STUCK-OUT TONGUE'),
+    ('😜', 'FACE WITH STUCK-OUT TONGUE AND WINKING EYE'),
+    ('😝', 'FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES'),
+    ('😞', 'DISAPPOINTED FACE'),
+    ('😟', 'WORRIED FACE'),
+    ('😠', 'ANGRY FACE'),
+    ('😡', 'POUTING FACE'),
+    ('😢', 'CRYING FACE'),
+    ('😣', 'PERSEVERING FACE'),
+    ('😤', 'FACE WITH LOOK OF TRIUMPH'),
+    ('😥', 'DISAPPOINTED BUT RELIEVED FACE'),
+    ('😦', 'FROWNING FACE WITH OPEN MOUTH'),
+    ('😧', 'ANGUISHED FACE'),
+    ('😨', 'FEARFUL FACE'),
+    ('😩', 'WEARY FACE'),
+    ('😪', 'SLEEPY FACE'),
+    ('😫', 'TIRED FACE'),
+    ('😬', 'GRIMACING FACE'),
+    ('😭', 'LOUDLY CRYING FACE'),
+    ('😮', 'FACE WITH OPEN MOUTH'),
+    ('😯', 'HUSHED FACE'),
+    ('😰', 'FACE WITH OPEN MOUTH AND COLD SWEAT'),
+    ('😱', 'FACE SCREAMING IN FEAR'),
+    ('😲', 'ASTONISHED FACE'),
+    ('😳', 'FLUSHED FACE'),
+    ('😴', 'SLEEPING FACE'),
+    ('😵', 'DIZZY FACE'),
+    ('😶', 'FACE WITHOUT MOUTH'),
+    ('😷', 'FACE WITH MEDICAL MASK'),
+    ('😸', 'GRINNING CAT FACE WITH SMILING EYES'),
+    ('😹', 'CAT FACE WITH TEARS OF JOY'),
+    ('😺', 'SMILING CAT FACE WITH OPEN MOUTH'),
+    ('😻', 'SMILING CAT FACE WITH HEART-SHAPED EYES'),
+    ('😼', 'CAT FACE WITH WRY SMILE'),
+    ('😽', 'KISSING CAT FACE WITH CLOSED EYES'),
+    ('😾', 'POUTING CAT FACE'),
+    ('😿', 'CRYING CAT FACE'),
+    ('🙀', 'WEARY CAT FACE'),
+    ('🙁', 'SLIGHTLY FROWNING FACE'),
 )
 
 LOG = logging.getLogger('gmoter')
@@ -116,30 +116,30 @@ def main():
     LOG.info('Dimensions: %dx%d', width, height)
 
     win = gtk.Window()
-    win.connect('destroy', gtk.main_quit)
     win.set_title('emoticons v%s' % __version__)
     win.set_keep_above(True)
     win.set_position(gtk.WIN_POS_MOUSE)
     win.set_geometry_hints(min_width=width, min_height=height)
+    win.set_resizable(False)
 
+    win.connect('destroy', gtk.main_quit)
     win.connect('key-press-event', on_keypress)
 
     rows = gtk.VBox()
+    win.add(rows)
 
     clipboard = gtk.Clipboard()
 
     row = None  # type: gtk.HButtonBox
-    for i, (_, emoticon, name) in enumerate(EMOTICONS):
+    for i, (emoticon, name) in enumerate(EMOTICONS):
         if i % COLUMNS == 0:
             row = gtk.HBox()
-            rows.add(row)
+            rows.pack_start(row)
 
         button = gtk.Button(emoticon)
         button.connect('clicked', on_button_click, clipboard, emoticon)
         row.pack_start(button)
 
-    win.set_resizable(False)
-    win.add(rows)
     win.show_all()
 
     try:
