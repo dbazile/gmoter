@@ -136,9 +136,22 @@ def main():
             row = gtk.HBox()
             rows.pack_start(row)
 
-        button = gtk.Button(emoticon)
-        button.connect('clicked', on_button_click, clipboard, emoticon)
-        row.pack_start(button)
+        def ebhover(button, event):
+            button.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color('#ff0'))
+
+        def ebblur(button, event):
+            button.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color('#fff'))
+
+        eb = gtk.EventBox()
+        eb.connect('button_press_event', on_button_click, clipboard, emoticon)
+        eb.connect('enter_notify_event', ebhover)
+        eb.connect('leave_notify_event', ebblur)
+        eb.add(gtk.Label(emoticon))
+        row.add(eb)
+        # button = gtk.Button(emoticon)
+        # button.connect('clicked', on_button_click, clipboard, emoticon)
+        # button.set_border_width(-1)
+        # row.pack_start(button)
 
     win.show_all()
 
@@ -148,7 +161,7 @@ def main():
         exit(1)
 
 
-def on_button_click(btn, clipboard, emoticon):
+def on_button_click(btn, event, clipboard, emoticon):
     LOG.info('Copy: %s', emoticon)
     clipboard.set_text(emoticon)
     clipboard.store()
