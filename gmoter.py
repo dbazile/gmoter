@@ -9,13 +9,16 @@
 
 from __future__ import print_function
 
+import logging
+
 import gtk
 
 
 __version__ = '1.0'
 
 COLUMNS = 12
-CELL_SIZE = 40
+CELL_SIZE = 60
+
 EMOTICONS = (
     (128070, '👆', 'WHITE UP POINTING BACKHAND INDEX'),
     (128071, '👇', 'WHITE DOWN POINTING BACKHAND INDEX'),
@@ -97,13 +100,20 @@ EMOTICONS = (
     (128577, '🙁', 'SLIGHTLY FROWNING FACE'),
 )
 
+LOG = logging.getLogger('gmoter')
+
 
 def main():
     # TODO -- type name to filter
     # TODO -- onfocus, change colors
 
+    logging.basicConfig(level=logging.DEBUG,
+                        format='[%(levelname)s] [%(funcName)s] %(message)s')
+
     width = CELL_SIZE * COLUMNS
     height = CELL_SIZE * int(round(len(EMOTICONS) / COLUMNS))
+
+    LOG.info('Dimensions: %dx%d', width, height)
 
     win = gtk.Window()
     win.connect('destroy', gtk.main_quit)
@@ -111,6 +121,8 @@ def main():
     win.set_keep_above(True)
     win.set_position(gtk.WIN_POS_MOUSE)
     win.set_geometry_hints(min_width=width, min_height=height)
+
+    win.connect('key-press-event', on_keypress)
 
     rows = gtk.VBox()
 
@@ -122,20 +134,8 @@ def main():
             row = gtk.HBox()
             rows.add(row)
 
-        btn = gtk.Button(emoticon)
-
-
-            time.sleep(1)
-
-    gobject.threads_init()
-
-    t = threading.Thread(target=tick)
-    t.daemon = True
-    t.start()
-
-    gtk.main()
-
-
+        button = gtk.Button(emoticon)
+        button.connect('clicked', on_button_click, clipboard, emoticon)
         row.pack_start(button)
 
     win.set_resizable(False)
@@ -148,12 +148,19 @@ def main():
         exit(1)
 
 
-def create_clickhandler(clipboard, emoticon):
-    def handle(_):
-        clipboard.set_text(emoticon)
-        clipboard.store()
-        exit()
-    return handle
+def on_button_click(btn, clipboard, emoticon):
+    LOG.info('Copy: %s', emoticon)
+    clipboard.set_text(emoticon)
+    clipboard.store()
+    gtk.main_quit()
+
+
+def on_keypress(window, event):
+    key_name = gtk.gdk.keyval_name(event.keyval)
+    LOG.info('Key press: %s', key_name)
+    if key_name == 'Escape':
+        LOG.info('Exiting')
+        gtk.main_quit()
 
 
 if __name__ == '__main__':
