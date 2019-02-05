@@ -13,3 +13,7 @@ Gnome feature. :)
 
 - Python 2
 - PyGTK
+
+## References
+
+- https://developer.gnome.org/pygtk/stable/class-gtkwindow.html
