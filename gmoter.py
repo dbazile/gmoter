@@ -163,7 +163,6 @@ class Window(gtk.Window):
         self.set_position(gtk.WIN_POS_CENTER)
         self.set_geometry_hints(min_width=width, min_height=height)
         self.set_resizable(False)
-        self.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color('#aaa'))
 
         self.rows = gtk.VBox()
         self.add(self.rows)
@@ -173,7 +172,8 @@ class Window(gtk.Window):
         if popup:
             self.set_border_width(1)
             self.set_decorated(False)
-            self.connect('focus-out-event', gtk.main_quit)
+            self.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color('#aaa'))
+            # self.connect('focus-out-event', gtk.main_quit)
 
     def create_row(self):
         row = gtk.HBox()
