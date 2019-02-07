@@ -3,6 +3,7 @@
 
 from __future__ import print_function
 
+import argparse
 import logging
 
 import gtk
@@ -50,39 +51,24 @@ LOG = logging.getLogger('gmoter')  # type: logging.Logger
 
 
 def main():
-    # TODO -- type name to filter
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--debug', action='store_true')
+    ap.add_argument('--persistent', action='store_true')
+    params = ap.parse_args()
 
-    logging.basicConfig(level=logging.DEBUG,
+    logging.basicConfig(level=logging.DEBUG if params.debug else logging.INFO,
                         format='[%(levelname)-5s] [%(funcName)16s] %(message)s')
 
-    width = CELL_SIZE * COLUMNS
-    height = CELL_SIZE * int(round(len(EMOTICONS) / COLUMNS))
-
-    LOG.info('Dimensions: %dx%d', width, height)
-
-    win = gtk.Window()
-    win.set_title('emoticons v%s' % __version__)
-    win.set_keep_above(True)
-    win.set_position(gtk.WIN_POS_MOUSE)
-    win.set_geometry_hints(min_width=width, min_height=height)
-    win.set_resizable(False)
-
-    win.connect('destroy', gtk.main_quit)
-
-    rows = gtk.VBox()
-    win.add(rows)
+    win = Window(not params.persistent)
+    win.show_all()
 
     colors = get_colors()
 
     row = None  # type: gtk.HButtonBox
     for i, (emoticon, name) in enumerate(EMOTICONS):
         if i % COLUMNS == 0:
-            row = gtk.HBox()
-            rows.pack_start(row)
-
-        button = Button(emoticon, name, colors)
-
-        row.pack_start(button)
+            row = win.create_row()
+        row.add(Button(emoticon, name, colors))
 
     win.show_all()
 
@@ -117,7 +103,6 @@ class Button(gtk.EventBox):
 
         self.set_bgcolor()
         self.set_can_focus(True)
-        self.set_activate_signal
 
         label = gtk.Label(emoticon)
         label.modify_font(pango.FontDescription('16'))
@@ -125,13 +110,12 @@ class Button(gtk.EventBox):
 
         self.connect('button_press_event', self.on_click)
         self.connect('enter_notify_event', self.on_hover_in)
-        # self.connect('leave_notify_event', self.on_hover_out)
         self.connect('key-press-event', self.on_keypress)
         self.connect('focus-in-event', self.on_focus)
         self.connect('focus-out-event', self.on_blur)
 
     def on_blur(self, *args):
-        LOG.info('[%s] blur', self.emoticon)
+        LOG.debug('[%s] blur', self.emoticon)
         self.set_bgcolor()
 
     def on_click(self, *args):
@@ -142,11 +126,11 @@ class Button(gtk.EventBox):
         gtk.main_quit()
 
     def on_focus(self, *args):
-        LOG.info('[%s] focus', self.emoticon)
+        LOG.debug('[%s] focus', self.emoticon)
         self.set_bgcolor('selected_bg_color')
 
     def on_hover_in(self, *args):
-        LOG.info('[%s] hover in', self.emoticon)
+        LOG.debug('[%s] hover in', self.emoticon)
         self.grab_focus()
 
     def on_keypress(self, _, event):
@@ -161,6 +145,39 @@ class Button(gtk.EventBox):
 
     def set_bgcolor(self, name='base_color'):
         self.modify_bg(gtk.STATE_NORMAL, self.colors.get(name))
+
+
+class Window(gtk.Window):
+    def __init__(self, popup=True):
+        super(Window, self).__init__()
+
+        width = CELL_SIZE * COLUMNS
+        height = CELL_SIZE * int(round(len(EMOTICONS) / COLUMNS))
+        height += 50
+
+        LOG.info('Creating %dx%d Window', width, height)
+
+        self.set_title('emoticons v%s' % __version__)
+        self.set_keep_above(True)
+        self.set_position(gtk.WIN_POS_CENTER)
+        self.set_geometry_hints(min_width=width, min_height=height)
+        self.set_resizable(False)
+        self.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color('#aaa'))
+
+        self.rows = gtk.VBox()
+        self.add(self.rows)
+
+        self.connect('destroy', gtk.main_quit)
+
+        if popup:
+            self.set_border_width(1)
+            self.set_decorated(False)
+            self.connect('focus-out-event', gtk.main_quit)
+
+    def create_row(self):
+        row = gtk.HBox()
+        self.rows.add(row)
+        return row
 
 
 if __name__ == '__main__':
