@@ -45,6 +45,7 @@ EMOTICONS = (
     ('😢', 'CRYING FACE'),  # 0x1F622
     ('😥', 'DISAPPOINTED BUT RELIEVED FACE'),  # 0x1F625
     ('😴', 'SLEEPING FACE'),  # 0x1F634
+    (r'¯\_(ツ)_/¯', 'shrug emoji, not really an icon but whatevs'),
 )
 
 LOG = logging.getLogger('gmoter')  # type: logging.Logger
