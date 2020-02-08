@@ -49,6 +49,7 @@ EMOTICONS = (
     ('😥', 'DISAPPOINTED BUT RELIEVED FACE'),  # 0x1F625
     ('😴', 'SLEEPING FACE'),  # 0x1F634
     (r'¯\_(ツ)_/¯', 'shrug emoji, not really an icon but whatevs'),
+    (r'ಠ_ಠ', 'disapproval emoji, supported in typeface google-noto-sans-kannada-fonts'),
 )
 
 LOG = logging.getLogger('gmoter')  # type: logging.Logger
