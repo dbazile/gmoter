@@ -172,17 +172,26 @@ class Window(gtk.Window):
         self.add(self.rows)
 
         self.connect('destroy', gtk.main_quit)
+        self.connect('key-press-event', self.on_keypress)
 
         if popup:
             self.set_border_width(1)
             self.set_decorated(False)
             self.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color('#aaa'))
-            # self.connect('focus-out-event', gtk.main_quit)
+            self.connect('focus-out-event', gtk.main_quit)
 
     def create_row(self):
         row = gtk.HBox()
         self.rows.add(row)
         return row
+
+    def on_keypress(self, _, event):
+        key_name = gtk.gdk.keyval_name(event.keyval)
+        LOG.info('[window] keypress: %s', key_name)
+
+        if key_name == 'Escape':
+            LOG.info('Exiting')
+            gtk.main_quit()
 
 
 if __name__ == '__main__':
