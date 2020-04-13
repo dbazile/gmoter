@@ -50,11 +50,11 @@ EMOTICONS = (
     ('😥', 'DISAPPOINTED BUT RELIEVED FACE'),  # 0x1F625
     ('😴', 'SLEEPING FACE'),  # 0x1F634
     (r'¯\_(ツ)_/¯', 'shrug'),  # yum install google-noto-sans-japanese-fonts
-    (r'ಠ_ಠ', 'look of disapproval'),    # yum install google-noto-sans-kannada-fonts
+    (r'ಠ_ಠ', 'look of disapproval'),  # yum install google-noto-sans-kannada-fonts
 )
 
 CSS = '''
-    .gmoter-window.gmother-window--isPopup {
+    .gmoter-window.gmoter-window--isPopup {
         border: 1px solid @borders;
     }
 
@@ -190,7 +190,7 @@ class Window(Gtk.Window):
         self.connect('key-press-event', self.on_keypress)
 
         if popup:
-            self.get_style_context().add_class('gmother-window--isPopup')
+            self.get_style_context().add_class('gmoter-window--isPopup')
             self.set_border_width(1)
             self.set_decorated(False)
             self.connect('focus-out-event', shutdown)
